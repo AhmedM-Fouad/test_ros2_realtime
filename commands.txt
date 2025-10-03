@@ -1,0 +1,11 @@
+source ~/ros2_iron/install/setup.bash
+python3 imu_pub.py
+python3 cam_pub.py
+
+ros2 bag record -o cam_imu_bag_0 /imu/data_raw /camera/image_raw
+
+python3 cam_imu_pub.py
+ros2 topic hz /imu/data_raw
+ros2 topic hz /camera/image_raw
+ros2 run rviz2 rviz2
+rosbags-convert --src cam_imu_bag_0 --dst cam_imu_bag_0_0.bag --dst-typestore ros1_noetic
