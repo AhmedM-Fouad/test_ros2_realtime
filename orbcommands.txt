@@ -1,0 +1,11 @@
+./Examples_old/Stereo-Inertial/mono_webcam \
+    Vocabulary/ORBvoc.txt \
+    Examples/Monocular/logitech.yaml
+
+
+./Examples_old/Stereo-Inertial/mono_my_data     Vocabulary/ORBvoc.txt     Examples/Monocular/logitech.yaml    datasets/IMG
+
+
+./Examples_old/Stereo-Inertial/mono_webcam_inertial \
+    Vocabulary/ORBvoc.txt \
+    Examples/Monocular-Inertial/logitech_imu.yaml /dev/ttyACM0

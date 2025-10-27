@@ -1,0 +1,79 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters (Monocular). Adjusted for your Logitech webcam.
+#--------------------------------------------------------------------------------------------
+
+Camera.type: "PinHole"
+
+# Camera calibration and distortion parameters (OpenCV order)
+Camera.fx: 640.1127266332838
+Camera.fy: 639.4446924814747
+Camera.cx: 316.83222815835336
+Camera.cy: 252.727369124074
+
+Camera.k1: 0.02268202781501572
+Camera.k2: -0.11781556582465563
+Camera.p1: -0.0020971661829884075
+Camera.p2: 0.0004610590874933431
+
+# Camera resolution
+Camera.width: 640
+Camera.height: 480
+
+# Camera frames per second 
+Camera.fps: 30# adjust to your camera
+
+# Color order of the images (0: BGR, 1: RGB)
+Camera.RGB: 1
+
+# IMU.T_b_c1
+# Transformation from camera to body-frame (IMU)
+Tbc: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   data: [0.00912808383286623, -0.9967684905304444, 0.0798076084793749, 0.005517679380024473,
+          -0.033489417838392155, -0.08007089339038317, -0.9962264355679933, 0.006287676536021836,
+           0.9993973869179285, 0.006420928073333554, -0.03411209029495746, -0.003853178024759791,
+           0.0, 0.0, 0.0, 1.0]
+#Tbc: !!opencv-matrix
+#   rows: 4
+#   cols: 4
+#   dt: f
+#   data: [1, 0.0, 0.0, -0.0216401454975,
+#         0.0, 1.0, 0.0, -0.064676986768,
+#        0.0, 0.0, 1.0, 0.00981073058949,
+#         0.0, 0.0, 0.0, 1.0]
+
+# IMU noise (example, replace with your calibration)
+IMU.NoiseGyro: 13.01077144875248
+IMU.NoiseAcc: 1.667405761048162
+IMU.GyroWalk: 0.0399939554370529
+IMU.AccWalk: 0.003137704894711221
+IMU.Frequency: 1000
+
+#--------------------------------------------------------------------------------------------
+# ORB Parameters (can tune later if needed)
+#--------------------------------------------------------------------------------------------
+
+ORBextractor.nFeatures: 1000
+ORBextractor.scaleFactor: 1.2
+ORBextractor.nLevels: 5
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#---------------------------------------------------------------------------------------------
+
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500.0

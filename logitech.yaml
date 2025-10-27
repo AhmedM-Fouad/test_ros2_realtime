@@ -1,0 +1,48 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters (Monocular). Adjusted for your Logitech webcam.
+#--------------------------------------------------------------------------------------------
+
+Camera.type: "PinHole"
+
+Camera.fx: 644.4590052631993
+Camera.fy: 644.6156961983206
+Camera.cx: 319.1512202963158
+Camera.cy: 253.28641062604143
+
+Camera.k1: 0.04714126679781584
+Camera.k2: -0.20536333088190012
+Camera.p1: 0.00026462267547631605
+Camera.p2: -0.000563035269767981
+
+Camera.width: 640
+Camera.height: 480
+
+Camera.fps: 30
+Camera.RGB: 1
+
+#--------------------------------------------------------------------------------------------
+# ORB Parameters (can tune later if needed)
+#--------------------------------------------------------------------------------------------
+
+ORBextractor.nFeatures: 1000
+ORBextractor.scaleFactor: 1.2
+ORBextractor.nLevels: 8
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#---------------------------------------------------------------------------------------------
+
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500.0
