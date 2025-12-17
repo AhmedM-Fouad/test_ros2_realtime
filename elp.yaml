@@ -1,0 +1,73 @@
+%YAML:1.0
+# ==================================================
+# ORB-SLAM3 Stereo Camera Configuration
+# Camera Model: Double Sphere (DS)
+# Resolution: 1280 x 720
+# ==================================================
+File.version: "1.0"
+Camera.type: "KannalaBrandt8"
+
+# --------------------------------------------------
+# LEFT CAMERA (Reference)
+# --------------------------------------------------
+
+Camera1.fx: 854.2032233777853
+Camera1.fy: 853.7634447130096
+Camera1.cx: 630.0554518194268
+Camera1.cy: 362.0046138217361
+
+Camera1.xi: -0.023692113352587786
+Camera1.alpha: 0.8673471108795271
+
+Camera.width: 1280
+Camera.height: 720
+
+# --------------------------------------------------
+# RIGHT CAMERA
+# --------------------------------------------------
+Camera2.fx: 848.6313509512735
+Camera2.fy: 848.3441482116255
+Camera2.cx: 635.4782929369337
+Camera2.cy: 359.0368000610993
+
+Camera2.xi: -0.033252903015650356
+Camera2.alpha: 0.8609491833166447
+
+
+# --------------------------------------------------
+# STEREO EXTRINSICS (Right <- Left)
+# From Kalibr T_cn_cnm1
+# --------------------------------------------------
+Stereo.Tlr: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   data: [
+     0.99999996, -1.9133310e-05, -2.6928011e-04, -0.06007259,
+     1.8480745e-05,  0.99999706, -0.00242316,   -0.00016878,
+     2.6932568e-04,  0.00242316,  0.99999703,   -0.00007334,
+     0.0,           0.0,          0.0,            1.0
+   ]
+
+# --------------------------------------------------
+# ORB Extractor Parameters
+# --------------------------------------------------
+ORBextractor.nFeatures: 2000
+ORBextractor.scaleFactor: 1.2
+ORBextractor.nLevels: 8
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
+
+# --------------------------------------------------
+# Viewer Parameters
+# --------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500
