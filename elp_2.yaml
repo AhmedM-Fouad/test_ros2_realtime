@@ -1,0 +1,131 @@
+%YAML:1.0
+# ==================================================
+# ORB-SLAM3 Stereo Camera Configuration
+# Camera Model: Pinhole (Rectified Images)
+# Resolution: 1280 x 720
+# Images are pre-rectified - no distortion correction needed
+# ==================================================
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters (Rectified)
+#--------------------------------------------------------------------------------------------
+# For rectified images, use Pinhole model with zero distortion
+Camera.type: "PinHole"
+
+# Left Camera (rectified)
+Camera.fx: 804.76
+Camera.fy: 804.76
+Camera.cx: 628.12
+Camera.cy: 360.52
+
+# Distortion parameters (all zero for rectified images)
+Camera.k1: 0.0
+Camera.k2: 0.0
+Camera.p1: 0.0
+Camera.p2: 0.0
+Camera.k3: 0.0
+
+# Right Camera (rectified - same intrinsics after rectification)
+Camera2.fx: 804.76
+Camera2.fy: 804.76
+Camera2.cx: 628.12
+Camera2.cy: 360.52
+
+# Distortion parameters (all zero for rectified images)
+Camera2.k1: 0.0
+Camera2.k2: 0.0
+Camera2.p1: 0.0
+Camera2.p2: 0.0
+Camera2.k3: 0.0
+
+#--------------------------------------------------------------------------------------------
+# Stereo Geometry
+#--------------------------------------------------------------------------------------------
+# Baseline * fx
+# Computed from: baseline = -Tx / fx = -(-48.4322) / 804.76 = 0.06018 m
+# bf = baseline * fx = 0.06018 * 804.76 = 48.43
+Camera.bf: 48.43
+
+# Transformation from left camera to right camera (T_c2_c1)
+# For rectified stereo, this is a pure translation along x-axis
+# Baseline = 0.06018 m (computed from Tx = -48.4322 pixels / fx = 804.76 pixels/meter)
+Tlr: !!opencv-matrix
+   rows: 3
+   cols: 4
+   dt: f
+   data: [ 1.0, 0.0, 0.0, -0.06018,
+           0.0, 1.0, 0.0,  0.0,
+           0.0, 0.0, 1.0,  0.0]
+
+# Left Camera Overlap (full width after rectification)
+Camera.lappingBegin: 0
+Camera.lappingEnd: 1280
+
+# Right Camera Overlap (full width after rectification)
+Camera2.lappingBegin: 0
+Camera2.lappingEnd: 1280
+
+#--------------------------------------------------------------------------------------------
+# Image Settings
+#--------------------------------------------------------------------------------------------
+Camera.width: 1280
+Camera.height: 720
+Camera.RGB: 1
+Camera.fps: 30.0
+
+#--------------------------------------------------------------------------------------------
+# Depth Parameters
+#--------------------------------------------------------------------------------------------
+# Maximum depth threshold (meters)
+ThDepth: 40.0
+
+# Depth map factor (1.0 for metric depth)
+DepthMapFactor: 1.0
+
+#--------------------------------------------------------------------------------------------
+# ORB Extractor Parameters
+#--------------------------------------------------------------------------------------------
+# Number of features per image
+ORBextractor.nFeatures: 1200
+
+# Scale factor between levels in the scale pyramid
+ORBextractor.scaleFactor: 1.2
+
+# Number of levels in the scale pyramid
+ORBextractor.nLevels: 8
+
+# Initial FAST threshold
+ORBextractor.iniThFAST: 20
+
+# Minimum FAST threshold
+ORBextractor.minThFAST: 7
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500
+
+#--------------------------------------------------------------------------------------------
+# System Parameters
+#--------------------------------------------------------------------------------------------
+# Load previous map (0: no, 1: yes)
+System.LoadAtlasFromFile: 0
+
+# Atlas save path
+System.SaveAtlasToFile: "Stereo_Atlas.osa"
+
+#--------------------------------------------------------------------------------------------
+# Tracking Parameters
+#--------------------------------------------------------------------------------------------
+# Stereo matching parameters (if needed by ORB-SLAM3 internal stereo matcher)
+Stereo.ThDepth: 40.0
+Stereo.b: 0.06018
