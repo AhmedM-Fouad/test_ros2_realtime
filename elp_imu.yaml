@@ -1,0 +1,293 @@
+# %YAML:1.0
+# # ==================================================
+# # ORB-SLAM3 Stereo Camera Configuration
+# # Camera Model: Pinhole (Rectified Images)
+# # Resolution: 800 x 600
+# # Images are pre-rectified - no distortion correction needed
+# # ==================================================
+
+# #--------------------------------------------------------------------------------------------
+# # Camera Parameters (Rectified)
+# #--------------------------------------------------------------------------------------------
+# # For rectified images, use Pinhole model with zero distortion
+# Camera.type: "PinHole"
+
+# # Left Camera (rectified)
+# Camera.fx: 665.16
+# Camera.fy: 665.16
+# Camera.cx: 391.49
+# Camera.cy: 298.51
+
+# # Distortion parameters (all zero for rectified images)
+# Camera.k1: 0.0
+# Camera.k2: 0.0
+# Camera.p1: 0.0
+# Camera.p2: 0.0
+# Camera.k3: 0.0
+
+# # Right Camera (rectified - same intrinsics after rectification)
+# Camera2.fx: 665.16
+# Camera2.fy: 665.16
+# Camera2.cx: 391.49
+# Camera2.cy: 298.51
+
+# # Distortion parameters (all zero for rectified images)
+# Camera2.k1: 0.0
+# Camera2.k2: 0.0
+# Camera2.p1: 0.0
+# Camera2.p2: 0.0
+# Camera2.k3: 0.0
+
+# #--------------------------------------------------------------------------------------------
+# # Stereo Geometry
+# #--------------------------------------------------------------------------------------------
+# # Baseline * fx
+# # Computed from: baseline = -Tx / fx = -(-48.4322) / 804.76 = 0.06018 m
+# # bf = baseline * fx = 0.06018 * 804.76 = 48.43
+# Camera.bf: 39.84
+
+# # Transformation from left camera to right camera (T_c2_c1)
+# # For rectified stereo, this is a pure translation along x-axis
+# # Baseline = 0.06018 m (computed from Tx = -48.4322 pixels / fx = 804.76 pixels/meter)
+# # Tlr: !!opencv-matrix
+# #    rows: 3
+# #    cols: 4
+# #    dt: f
+# #    data: [ 1.0, 0.0, 0.0, -0.06018,
+# #            0.0, 1.0, 0.0,  0.0,
+# #            0.0, 0.0, 1.0,  0.0]
+
+# # Transformation from left camera to right camera (T_c2_c1)
+# # Use ORIGINAL transformation even though images are rectified
+# # This is for visualization purposes only
+# Tlr: !!opencv-matrix
+#    rows: 3
+#    cols: 4
+#    dt: f
+#    data: [ 0.9999999622, -1.1720151e-05,  2.7467777e-04, -0.0601817070,
+#            1.2378309e-05,  0.9999971290, -2.3962276e-03, -0.0001475971,
+#           -2.7464890e-04,  2.3962310e-03,  0.9999970913,  0.0000196043]
+
+# # Left Camera Overlap (full width after rectification)
+# Camera.lappingBegin: 0
+# Camera.lappingEnd: 1280
+
+# # Right Camera Overlap (full width after rectification)
+# Camera2.lappingBegin: 0
+# Camera2.lappingEnd: 1280
+
+# #--------------------------------------------------------------------------------------------
+# # Image Settings
+# #--------------------------------------------------------------------------------------------
+# Camera.width: 800
+# Camera.height: 600
+# Camera.RGB: 1
+# Camera.fps: 30.0
+
+# #--------------------------------------------------------------------------------------------
+# # Depth Parameters
+# #--------------------------------------------------------------------------------------------
+# # Maximum depth threshold (meters)
+# ThDepth: 40.0
+
+# # Depth map factor (1.0 for metric depth)
+# DepthMapFactor: 1.0
+
+# #--------------------------------------------------------------------------------------------
+# # ORB Extractor Parameters
+# #--------------------------------------------------------------------------------------------
+# # Number of features per image
+# ORBextractor.nFeatures: 1200
+
+# # Scale factor between levels in the scale pyramid
+# ORBextractor.scaleFactor: 1.2
+
+# # Number of levels in the scale pyramid
+# ORBextractor.nLevels: 8
+
+# # Initial FAST threshold
+# ORBextractor.iniThFAST: 20
+
+# # Minimum FAST threshold
+# ORBextractor.minThFAST: 7
+
+# #--------------------------------------------------------------------------------------------
+# # Viewer Parameters
+# #--------------------------------------------------------------------------------------------
+# Viewer.KeyFrameSize: 0.05
+# Viewer.KeyFrameLineWidth: 1
+# Viewer.GraphLineWidth: 0.9
+# Viewer.PointSize: 2
+# Viewer.CameraSize: 0.08
+# Viewer.CameraLineWidth: 3
+# Viewer.ViewpointX: 0
+# Viewer.ViewpointY: -0.7
+# Viewer.ViewpointZ: -1.8
+# Viewer.ViewpointF: 500
+
+# #--------------------------------------------------------------------------------------------
+# # System Parameters
+# #--------------------------------------------------------------------------------------------
+# # Load previous map (0: no, 1: yes)
+# System.LoadAtlasFromFile: 0
+
+# # Atlas save path
+
+# #--------------------------------------------------------------------------------------------
+# # Tracking Parameters
+# #--------------------------------------------------------------------------------------------
+# # Stereo matching parameters (if needed by ORB-SLAM3 internal stereo matcher)
+# Stereo.ThDepth: 39.84
+# Stereo.b: 0.0599
+
+%YAML:1.0
+# ==================================================
+# ORB-SLAM3 Stereo-Inertial Camera Configuration
+# Camera Model: Pinhole (Rectified Images)
+# Resolution: 800 x 600
+# Images are pre-rectified - no distortion correction needed
+# IMU: Calibrated with Kalibr
+# ==================================================
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters (Rectified)
+#--------------------------------------------------------------------------------------------
+# For rectified images, use Pinhole model with zero distortion
+Camera.type: "PinHole"
+
+# Left Camera (rectified)
+Camera.fx: 665.16
+Camera.fy: 665.16
+Camera.cx: 391.49
+Camera.cy: 298.51
+
+# Distortion parameters (all zero for rectified images)
+Camera.k1: 0.0
+Camera.k2: 0.0
+Camera.p1: 0.0
+Camera.p2: 0.0
+Camera.k3: 0.0
+
+# Right Camera (rectified - same intrinsics after rectification)
+Camera2.fx: 665.16
+Camera2.fy: 665.16
+Camera2.cx: 391.49
+Camera2.cy: 298.51
+
+# Distortion parameters (all zero for rectified images)
+Camera2.k1: 0.0
+Camera2.k2: 0.0
+Camera2.p1: 0.0
+Camera2.p2: 0.0
+Camera2.k3: 0.0
+
+#--------------------------------------------------------------------------------------------
+# Stereo Geometry
+#--------------------------------------------------------------------------------------------
+# Baseline * fx
+Camera.bf: 39.84
+
+# Transformation from left camera to right camera (T_c2_c1)
+Tlr: !!opencv-matrix
+   rows: 3
+   cols: 4
+   dt: f
+   data: [ 0.9999999622, -1.1720151e-05,  2.7467777e-04, -0.0599817070,
+           1.2378309e-05,  0.9999971290, -2.3962276e-03, -0.0001475971,
+          -2.7464890e-04,  2.3962310e-03,  0.9999970913,  0.0000196043]
+
+# Left Camera Overlap (full width after rectification)
+Camera.lappingBegin: 0
+Camera.lappingEnd: 800
+
+# Right Camera Overlap (full width after rectification)
+Camera2.lappingBegin: 0
+Camera2.lappingEnd: 800
+
+#--------------------------------------------------------------------------------------------
+# IMU Parameters
+#--------------------------------------------------------------------------------------------
+# IMU to Camera transformation (T_bc: cam0 to imu0)
+# From calibration report: T_ic (cam0 to imu0)
+IMU.T_b_c1: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   data: [ 0.02848865, -0.05183564,  0.9982492,  0.03246673,
+          -0.99928961,  0.02317138,  0.02972155,  0.0293905,
+          -0.02467145, -0.99838678, -0.0511387, -0.02150026,
+           0.0,         0.0,         0.0,        1.0]
+
+# IMU noise parameters (from calibration report)
+# Gyroscope noise density (continuous): 0.009227332974166525 rad/s
+# Accelerometer noise density (continuous): 0.0448169727873374 m/s^2
+IMU.NoiseGyro: 0.009227332974166525
+IMU.NoiseAcc: 0.0448169727873374
+
+# IMU random walk parameters
+# Gyroscope random walk: 0.0012980568786282785 rad/s
+# Accelerometer random walk: 0.0015535962490912437 m/s^2
+IMU.GyroWalk: 0.0012980568786282785
+IMU.AccWalk: 0.0015535962490912437
+
+# IMU sample frequency
+IMU.Frequency: 500.0
+
+# Time offset from camera to IMU (t_imu = t_cam + shift)
+# From calibration: -0.03325742989415989 s
+# IMU.TimeShift: -0.03325742989415989
+
+#--------------------------------------------------------------------------------------------
+# Image Settings
+#--------------------------------------------------------------------------------------------
+Camera.width: 800
+Camera.height: 600
+Camera.RGB: 0
+Camera.fps: 15.0
+
+#--------------------------------------------------------------------------------------------
+# Depth Parameters
+#--------------------------------------------------------------------------------------------
+# Maximum depth threshold (meters)
+ThDepth: 40.0
+
+# Depth map factor (1.0 for metric depth)
+DepthMapFactor: 1.0
+
+#--------------------------------------------------------------------------------------------
+# ORB Extractor Parameters
+#--------------------------------------------------------------------------------------------
+# Number of features per image
+ORBextractor.nFeatures: 1200
+
+# Scale factor between levels in the scale pyramid
+ORBextractor.scaleFactor: 1.2
+
+# Number of levels in the scale pyramid
+ORBextractor.nLevels: 8
+
+# Initial FAST threshold
+ORBextractor.iniThFAST: 20
+
+# Minimum FAST threshold
+ORBextractor.minThFAST: 7
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500
+#--------------------------------------------------------------------------------------------
+# Tracking Parameters
+#--------------------------------------------------------------------------------------------
+# Stereo matching parameters
+# Stereo.ThDepth: 39.84
+Stereo.b: 0.0599
